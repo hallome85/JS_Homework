@@ -6,12 +6,15 @@
 let randomString = 'Unimaginatively';
   let myString = randomString.toLowerCase();
   let finalString = '';
+  let numberOfVovels = '';
+let numberOfConsonants ='';
   for (let i = 0; i <= myString.length - 1; i++){
-    const vowels = 'aeiouy';
-    if (vowels.includes(myString[i])){
-finalString += myString[i];
+      const vowels = 'aeiouy';
+      const consonant = 'bcdfghjklmnpqrstvwxz';
+    if (vowels.includes(myString[i])){numberOfVovels += myString[i];
+          } else if (consonant.includes(myString[i])){
+            numberOfConsonants += myString[i];
     }
   }
-let numbrOfVovels = finalString.length;
-let numberOfConsonsnts = myString.length - numbrOfVovels;
-console.log(`Word ${randomString} contains ${numbrOfVovels} vowels and ${numberOfConsonsnts} consonants`);
+console.log(`Word ${randomString} contains ${numberOfVovels.length} vowels and ${numberOfConsonants.length} consonants`);
+
