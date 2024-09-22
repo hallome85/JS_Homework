@@ -6,12 +6,12 @@
 
 let ourNumber = 1;
 while (ourNumber > 0 && ourNumber <= 100){          
- if (ourNumber % 3 === 0) {
-        console.log(`Число ${ourNumber} делится на 3`)
+ if (ourNumber % 5 === 0 && ourNumber % 3 === 0) {
+        console.log(`Число ${ourNumber} делится на 3 и на 5`)
     }else if (ourNumber % 5 === 0) {
         console.log(`Число ${ourNumber} делится на 5`);
-    }else if (ourNumber % 5 === 0 && ourNumber % 3 === 0) {
-    console.log(`Число ${ourNumber} делится на 3 и на 5`);
+    }else if (ourNumber % 3 === 0) {
+    console.log(`Число ${ourNumber} делится на 3`);
 }
     ourNumber++;}
        
