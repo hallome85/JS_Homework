@@ -10,12 +10,14 @@ const myPizzas = ['Marinara', 'peperoni', 'Margarita', '4 cheeses', 'hawai'];
 const competitorPizzasBig = [];
 const myPizzasBig = [];
 const resaltOfComparion = [];
-for (const toBig of competitorPizzas){
-competitorPizzasBig.push(toBig.toUpperCase());
-}
-for (const tooBig of myPizzas){
-    myPizzasBig.push(tooBig.toUpperCase());
-}
+for (let i = 0; i < myPizzas.length || i < competitorPizzas.length; i++) {
+    if (i < competitorPizzas.length) {
+      competitorPizzasBig.push(competitorPizzas[i].toUpperCase());
+    }
+    if (i < myPizzas.length) {
+      myPizzasBig.push(myPizzas[i].toUpperCase());
+    }
+  }
 for (const pizza of myPizzasBig){
     if (!competitorPizzasBig.includes(pizza)){
         resaltOfComparion.push(pizza);
