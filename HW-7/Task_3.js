@@ -4,11 +4,15 @@
   */
 
  
-  function sumOfDigits(digit){
-    if (digit < 10){
-        return digit;
-        }else{
-            return sumOfDigits(sumOfDigits(Math.trunc(digit/10)) + sumOfDigits(digit%10));
-        }
-        }
-console.log(sumOfDigits(48));
+  function sumOfDigits(digit) {
+    if (digit < 10) {
+      return digit;
+    } else {
+      let sum = 0;
+      for (const char of String(digit)) {
+        sum += +char;
+      }
+      return sumOfDigits(sum);
+    }
+  }
+  console.log(sumOfDigits(48));
