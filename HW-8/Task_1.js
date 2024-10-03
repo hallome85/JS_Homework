@@ -28,7 +28,7 @@ console.log(findEqualElementAndIndex);
 
  // 5. sort - отсортируйте массив по возрастанию, не изменив изначальный 
      // [2, 7, 8, 30, 31, 37, 77, 85, 94, 95]
-console.log([...isArray.sort((a, b) => a - b)]);
+console.log([...isArray].sort((a, b) => a - b));
 
  // 6. reduce - получите сумму всех чисел массива //466
 const sum = isArray.reduce((accum, el) => {
