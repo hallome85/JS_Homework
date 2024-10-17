@@ -9,9 +9,7 @@ console.log(countOccurrences(numbers)); */
 
 const numbers = [1, 2, 2, 3, 4, 4, 4, 5];
 function countOccurrences(arr) {
-    return arr.reduce((accumulator, el) => {
-        accumulator[el] = !accumulator[el]? 1 : (accumulator[el] + 1);
-        return accumulator;
-    }, {});
-  }
+  return arr.reduce((accumulator, el) =>
+    (accumulator[el] ? accumulator[el]++ : accumulator[el] = 1, accumulator), {}); // выражение ,accumulator - аналог внутреннего return, возвращает accumulator для накопления результата в следующей итерации 
+  };
 console.log(countOccurrences(numbers));
