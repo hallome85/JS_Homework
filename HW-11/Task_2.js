@@ -12,16 +12,16 @@ get firstName() {
     return this._firstName;
   }
   set firstName(firstName) {
-       if ((typeof firstName !== "string") || (!(/^[A-Za-z]+$/).test(firstName)) || (firstName.length < 2 || firstName.length > 50)) {
-        throw new Error('Wrong firstName');
+       if ((typeof firstName !== "string") || (!(/^[a-zA-Z]{2,50}$/).test(firstName))) {
+        throw new Error(`Invalid firstName ${this._firstName}`);
        }  this._firstName = firstName;
        }
   get lastName() {
     return this._lastName;
   }
   set lastName(lastName) {
-    if ((typeof lastName !== "string") || (!(/^[A-Za-z]+$/).test(lastName)) || (lastName.length < 2 || lastName.length > 50)){
-        throw new Error ('Wrong lastName');
+    if ((typeof lastName !== "string") || (!(/^[a-zA-Z]{2,50}$/).test(lastName))){
+        throw new Error (`Invalid lastName ${this._lastName}`);
     } this._lastName = lastName;
             }
   get profession() {
@@ -29,7 +29,7 @@ get firstName() {
   }
   set profession(profession) {
     if ((typeof profession !== "string") || (!(/^[A-Za-z\s]*$/).test(profession)) || (profession.length === 0)) {
-        throw new Error ('Wrong profession')     
+        throw new Error (`Invalid profession ${this._profession}`)     
     }  this._profession = profession;
 }
   get salary() {
@@ -37,7 +37,7 @@ get firstName() {
   }
   set salary(salary) {
     if ((typeof salary !== "number") || (salary < 0 || salary > 10000)){
-        throw new Error (`Wrong ${this.#salary}`)
+        throw new Error (`Invalid salary ${this.#salary}`)
     }  this.#salary = salary;
 }
 getFullName (){
@@ -57,7 +57,7 @@ return this._title;
 }
 set title(title) {
 if (typeof title !== "string") {
-    throw new Error ('Неверный тип данных title')     
+    throw new Error ('Invalid type of title')     
 }  this._title = title;
 }
 get phone(){
@@ -65,7 +65,7 @@ get phone(){
 }
 set phone(phone) {
     if (typeof phone !== "string") {
-        throw new Error ('Неверный тип данных phone')     
+        throw new Error ('Invalid type of phone')     
     }  this._phone = phone;
 }
  get address(){
@@ -73,11 +73,11 @@ set phone(phone) {
  }
  set address(address) {
     if (typeof address !== "string") {
-        throw new Error ('Неверный тип данных address')     
+        throw new Error ('Invalid type of address')     
     }  this._address = address;
 }
 addEmployee(employee){
-    if ((employee instanceof Employee) !== true){
+    if (!(employee instanceof Employee)){
         throw new Error ('Не является экземпляром Employee');
     } this.#employees.push(employee);
         }
@@ -98,15 +98,14 @@ findEmployeeByName(firstName){
     return employee;
 }
 #getEmployeeIndex(firstName){
-    return this.#employees.findIndex((el) => el.firstName === firstName);
+    const index = this.#employees.findIndex((el) => el.firstName === firstName);
+    if (index === -1){
+        throw new Error ('Employee do not exist');
+    }
+    return index;
 }
 removeEmployee(firstName){
-    // const index = this.#getEmployeeIndex(firstName);
-    //     if (index === -1) {
-    //         throw new Error(`Employee with name ${firstName} does not exist`);
-    //     }
-    //     return this.#employees.splice(index, 1);
-    return this.#employees.splice(this.#getEmployeeIndex(firstName), 1);
+       return this.#employees.splice(this.#getEmployeeIndex(firstName), 1);
     }
 getTotalSalary(){
     return this.#employees.reduce((total, el) => total + el.salary, 0);
@@ -137,4 +136,5 @@ getTotalSalary(){
     console.log(company.findEmployeeByName("Jane")); // Employee { firstName: 'Jane', ... }
     company.removeEmployee("John");
     console.log(company.getEmployees()); // [Employee, Employee]
+
 
