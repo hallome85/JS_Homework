@@ -1,11 +1,9 @@
 // 1. Создайте функцию delayTwoSeconds, принимающую на вход коллбэк функцию, которая будет отрабатывать спустя 2 секунды после вызова delayTwoSeconds
 
-function delayTwoSeconds (seconds){
-    setTimeout(() => {
-        console.log("Promises... Promises everywhere :'(");
-        }, seconds*2000);
+function delayTwoSeconds (callback){
+    setTimeout(callback, 2000);
      }
-     delayTwoSeconds(2);
+     delayTwoSeconds(() => console.log ("Promises... Promises everywhere :'("));
 
 // 2. Создайте переменную, в которую присвоите новый промис. Промис должен резолваться с числом 1. Обработайте промис методом .then и выведите результат
 //   его резолва в консоль
@@ -52,7 +50,7 @@ Promise.allSettled([promiseNumber(1), promiseNumber(2), promiseNumber(3)])
     });
 // 7. Повторите пункты 5 и 6 используя асинхронные функции с блоком try..catch
 
-async function all(){
+async function allPromise(){
     try {
         const results = await Promise.all([promiseNumber(1), promiseNumber(2), promiseNumber(3)]);
         console.log(results);   
@@ -63,7 +61,7 @@ async function all(){
     }
   }
   
-  all();
+  allPromise();
 
   async function allSettled() {
     try {
