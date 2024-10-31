@@ -8,13 +8,8 @@
 // Функция должна возвращать false, если хотя бы одно из условий не выполнено.
 
 function validatePassword (password: string): boolean{
-    if (password.length < 8) {
-        return false;
-    }else if (password.trim().length === 0){
-        return false
-    }
-const requirements = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+$/;
+   const requirements = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!\s+$).{8,}[a-zA-Z\d]+$/;
 return requirements.test(password);
 }
-const testStrings = "              ";
+const testStrings = "   54kjhfFddds";
 console.log (validatePassword(testStrings));
