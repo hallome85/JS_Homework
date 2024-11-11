@@ -4,7 +4,7 @@
 
 function getKeyByValue <T extends object, U> (obj: T, value: U): keyof T| undefined {
         for (const key in obj) {
-            if (obj.hasOwnProperty(key)){
+            if (obj.hasOwnProperty(key)){  // или return Object.keys(obj).find(key => obj[key as keyof T] === value) as keyof T | undefined;
               if (obj[key] === value){
                 return key as keyof T;
     } 
@@ -12,11 +12,3 @@ function getKeyByValue <T extends object, U> (obj: T, value: U): keyof T| undefi
 }
 return undefined;
 }
-const exampleObject = {
-    a: 1,
-    b: 2,
-    c: 3
-};
-
-console.log(getKeyByValue(exampleObject, 2)); // Вывод: "b"
-//console.log(getKeyByValue(exampleObject, 5)); // Вывод: undefined
