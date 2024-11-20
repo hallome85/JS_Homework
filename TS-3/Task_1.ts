@@ -43,3 +43,12 @@ function getLastItem<T>(arr: T[]): T {
 //     }
 
 //     console.log(describePair({ first: 'Alice', second: 30 })); // "Alice and 30"
+
+interface IPair<T, U> {
+          first: T;
+          second: U;
+        }
+            function describePair<T, U> (two: IPair<T, U>){
+          return `${two.first} and ${two.second}`
+        }
+            console.log(describePair({ first: 'Alice', second: 30 })); // "Alice and 30"
