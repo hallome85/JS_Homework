@@ -35,7 +35,7 @@ export class Order {
     return this.numberOfMeal.reduce ((total, pizza) => total + pizza.getPrice(), 0);
    
   }
-  removeFromOrder(name: PIZZA_NAMES) {
+  removeFromOrder(name: string) {
     const indexOfPizza = this.numberOfMeal.findIndex((element) => element.name === name);
         if(indexOfPizza === -1){
       throw new Error (`Pizza ${name} ${ERROR_MESSAGES.DIDNTFIND} `);
