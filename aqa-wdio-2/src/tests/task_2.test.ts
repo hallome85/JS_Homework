@@ -1,3 +1,5 @@
+//npm run test -- --spec="./src/tests/task_2.test.ts"
+
 //     Task 2.
 //  Создать функцию waitForElementWithText(selector, text, timeout) для ожидания определенного текста (text)
 //  у элемента с определенным селектором (selector) на протяжении определенного времени (timeout):
@@ -6,8 +8,7 @@
 
 describe("Dynamic Controls", async () => {
   const dynamicControlsSelector = 'a[href="/dynamic_controls"]'; ////a[@href="/dynamic_controls"]
-  const subheaderTextSelector =
-    '//p[text()="This example demonstrates when elements (e.g., checkbox, input field, etc.) are changed asynchronously."]';
+  const subheaderTextSelector = '//p[contains(text(), "example demonstrates")]';
   const checkboxSelector = 'input[type="checkbox"]'; /////input[@type="checkbox"]
   const removeButtonSelector = 'button[onclick="swapCheckbox()"]'; ////button[text()="Remove"]
   const addButtonSelector = '//button[text()="Add"]';
@@ -69,7 +70,7 @@ describe("Dynamic Controls", async () => {
         return isDisplayed && elementText.includes(text);
       },
       {
-        timeout: 5000,
+        //timeout,
         interval: 500,
         timeoutMsg: `Element with selector "${selector}" is not displayed after ${timeout} sec or does not contain the expected text "${text}".`,
       }

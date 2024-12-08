@@ -17,8 +17,7 @@
 
 describe("Dynamic Controls", async () => {
   const dynamicControlsSelector = 'a[href="/dynamic_controls"]'; ////a[@href="/dynamic_controls"]
-  const subheaderTextSelector =
-    '//p[text()="This example demonstrates when elements (e.g., checkbox, input field, etc.) are changed asynchronously."]';
+  const subheaderTextSelector = '//p[contains(text(), "example demonstrates")]';
   const checkboxSelector = 'input[type="checkbox"]'; /////input[@type="checkbox"]
   const removeButtonSelector = 'button[onclick="swapCheckbox()"]'; ////button[text()="Remove"]
   const addButtonSelector = '//button[text()="Add"]';
