@@ -8,7 +8,7 @@
 
 describe("Dynamic Controls", async () => {
   const dynamicControlsSelector = 'a[href="/dynamic_controls"]'; ////a[@href="/dynamic_controls"]
-  const subheaderTextSelector = '//p[contains(text(), "example demonstrates")]';
+  const subheaderTextSelector = 'h4+p'; ////p[contains(text(), "example demonstrates")]
   const checkboxSelector = 'input[type="checkbox"]'; /////input[@type="checkbox"]
   const removeButtonSelector = 'button[onclick="swapCheckbox()"]'; ////button[text()="Remove"]
   const addButtonSelector = '//button[text()="Add"]';
@@ -54,13 +54,12 @@ describe("Dynamic Controls", async () => {
     await $(checkboxSelector).click();
     await $(addButtonSelector).isDisplayed();
     await $(addButtonSelector).click();
-    await waitForElementWithText(statusMesageSelector, "It's back!", 5000);
+    await waitForElementWithText(statusMesageSelector, "It's back!");
   });
 
   async function waitForElementWithText(
     selector: string,
-    text: string,
-    timeout: number
+    text: string
   ) {
     await browser.waitUntil(
       async () => {
@@ -70,9 +69,9 @@ describe("Dynamic Controls", async () => {
         return isDisplayed && elementText.includes(text);
       },
       {
-        //timeout,
+        timeout: 5000,
         interval: 500,
-        timeoutMsg: `Element with selector "${selector}" is not displayed after ${timeout} sec or does not contain the expected text "${text}".`,
+        timeoutMsg: `Element with selector "${selector}" is not displayed  or does not contain the expected text "${text}".`,
       }
     );
   }

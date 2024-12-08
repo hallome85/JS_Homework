@@ -17,7 +17,7 @@
 
 describe("Dynamic Controls", async () => {
   const dynamicControlsSelector = 'a[href="/dynamic_controls"]'; ////a[@href="/dynamic_controls"]
-  const subheaderTextSelector = '//p[contains(text(), "example demonstrates")]';
+  const subheaderTextSelector = 'h4+p'; ////p[contains(text(), "example demonstrates")]
   const checkboxSelector = 'input[type="checkbox"]'; /////input[@type="checkbox"]
   const removeButtonSelector = 'button[onclick="swapCheckbox()"]'; ////button[text()="Remove"]
   const addButtonSelector = '//button[text()="Add"]';
