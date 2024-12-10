@@ -54,12 +54,13 @@ describe("Dynamic Controls", async () => {
     await $(checkboxSelector).click();
     await $(addButtonSelector).isDisplayed();
     await $(addButtonSelector).click();
-    await waitForElementWithText(statusMesageSelector, "It's back!");
+    await waitForElementWithText(statusMesageSelector, "It's back!", 5000);
   });
 
   async function waitForElementWithText(
     selector: string,
-    text: string
+    text: string,
+    timeout: number
   ) {
     await browser.waitUntil(
       async () => {
@@ -69,9 +70,9 @@ describe("Dynamic Controls", async () => {
         return isDisplayed && elementText.includes(text);
       },
       {
-        timeout: 5000,
+        timeout,
         interval: 500,
-        timeoutMsg: `Element with selector "${selector}" is not displayed  or does not contain the expected text "${text}".`,
+        timeoutMsg: `Element with selector "${selector}" is not displayed after ${timeout} sec or does not contain the expected text "${text}".`,
       }
     );
   }
