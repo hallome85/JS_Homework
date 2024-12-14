@@ -1,0 +1,11 @@
+{
+  "name": "aqa-wdio-4",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^9.2.14",
+    "@wdio/local-runner": "^9.4.1",
+    "@wdio/mocha-framework": "^9.2.8",
+    "@wdio/spec-reporter": "^9.2.14"
+  },
+"scripts":{"test":"npx wdio run ./wdio.conf.ts"}
+}
