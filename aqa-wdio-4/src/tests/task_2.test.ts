@@ -33,6 +33,7 @@ const addNewProductAmountSelector = "#inputAmount";
 const addNewProductNotesSelector = "#textareaNotes";
 
        
+
 const homePageHeaderText = "Welcome to Sales Management Portal";
 const productCreatedNotification = "Product was successfully created"
 
