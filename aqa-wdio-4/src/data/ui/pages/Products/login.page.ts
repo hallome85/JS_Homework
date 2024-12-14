@@ -7,7 +7,7 @@
 
 import { BasePage } from "./base.page";
 
-abstract class loginPage extends BasePage {
+class LoginPage extends BasePage {
   readonly email = '[for="emailinput"]';
   readonly password = "#passwordinput";
   readonly loginbutton = "button.btn.btn-primary";
